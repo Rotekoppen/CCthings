@@ -6,11 +6,12 @@ function updateStatus(spike, id, payload)
     spike.connected = true
 end
 
-function Spike:__init( name, id, datapoints )
+function Spike:__init( name, id, datapoints, highlighted )
     self.name = name
     self.connected = false
     self.id = id
     self.status = {}
+    self.highlighted = highlighted
     self.datapoints = datapoints
     for i,datapoint in ipairs(self.datapoints) do
         datapoint.spike = self

@@ -28,12 +28,7 @@ function M:render()
     -- Draw Options
     for i,spike in ipairs(M.spikes) do
         
-        -- From right to left, first let the spike do its thing
-        term.setCursorPos(12+M.scroll, i+2)
-        for k,datapoint in ipairs(spike.datapoints) do
-            if M.selected == i then term.write(k .. ": ") end
-            datapoint:renderGuiLine(k)
-        end
+        
         setColor(colors.white, colors.black)
         
         -- Then Name
@@ -44,12 +39,34 @@ function M:render()
         term.write(spike.name .. " ")
         term.setTextColor(colors.white)
         
+        if not M.mobile then
+            -- From right to left, first let the spike do its thing
+            term.setCursorPos(12+M.scroll, i+2)
+            term.write(" ")
+            for k,datapoint in ipairs(spike.datapoints) do
+                if M.selected == i then term.write(k .. ": ") end
+                datapoint:renderGuiLine()
+            end
+        else
+            term.setCursorPos(18, i+2)
+            term.write(" ")
+            spike.datapoints[spike.highlighted]:renderGuiLine()
+        end
+
         -- Then the static stuff
         term.setCursorPos(1, i+2)
         if i == M.selected then
             term.write("-> ")
         else
             term.write (" " .. tostring(i) .. " ")
+        end
+    end
+
+    if M.mobile then
+        for k,datapoint in ipairs(M.spikes[M.selected].datapoints) do
+            term.setCursorPos(1, 10+k)
+            term.write(k .. ": ")
+            datapoint:renderGuiLine()
         end
     end
 end
@@ -59,8 +76,10 @@ function M:inputThread()
         local event, key, is_held = os.pullEvent("key")
         local char = keys.getName(key)
 
-        if char == "left" then M.scroll = math.min(M.scroll + 1, 0) end
-        if char == "right" then M.scroll = math.max(M.scroll - 1, -20) end
+        if M.mobile then
+            if char == "left" then M.scroll = math.min(M.scroll + 1, 0) end
+            if char == "right" then M.scroll = math.max(M.scroll - 1, -20) end
+        end
         if char == "up" then M.selected = math.max(M.selected - 1, 0) end
         if char == "down" then M.selected = math.min(M.selected + 1, #M.spikes) end
 

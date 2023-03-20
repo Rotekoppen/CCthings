@@ -9,7 +9,7 @@ function Toggle:__init(id, display, onText, offText)
     self.offText = offText
 end
 
-function Toggle:renderGuiLine(key)
+function Toggle:renderGuiLine()
     term.write(self.display)
     if self:get() then
         term.setBackgroundColor(colors.green)

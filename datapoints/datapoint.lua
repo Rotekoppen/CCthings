@@ -6,7 +6,7 @@ function Datapoint:__init(id)
     self.spike = nil
 end
 
-function Datapoint:renderGuiLine(key)
+function Datapoint:renderGuiLine()
     term.write(tostring(self:get()) .. "  ")
 end
 

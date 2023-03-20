@@ -9,6 +9,8 @@ for i,v in ipairs({
     "datapoints",
     "toggle.lua",
     "spikectl.lua",
+    "spikegui.lua",
+    "spike.lua",
 
     -- Chopdaemon
     "spikedaemon.lua",
@@ -32,7 +34,11 @@ if input == "spikectl" then
     shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/datapoints/datapoint.lua")
     shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/datapoints/toggle.lua")
     shell.run("cd ..")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/configparser.lua")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/spike.lua")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/spikegui.lua")
     shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/spikectl.lua")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/defaultConfigs/ctl.json config.json")
 end
 
 if input == "chopdaemon" then
