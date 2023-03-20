@@ -12,15 +12,15 @@ if input == "spikectl" then
     shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/datapoints/datapoint.lua")
     shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/datapoints/toggle.lua")
     shell.run("cd ..")
-    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/blob/main/spikectl.lua")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/spikectl.lua")
 end
 
 if input == "chopdaemon" then
     print("\nInstalling chopdaemon\n")
     shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/spikedaemon.lua")
-    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/blob/main/chopdaemon.lua")
-    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/blob/main/configparser.lua")
-    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/blob/main/defaultConfigs/chop.lua config.json")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/chopdaemon.lua")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/configparser.lua")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/defaultConfigs/chop.json config.json")
 end
 
 print("\nDone\n")
