@@ -6,7 +6,7 @@
             "id": 1,
             "highlighted": 3,
             "datapoints": [
-                { "type": "Toggle", "name": "Enabled", "display": "", "onText": "off", "offText": "on "},
+                { "type": "Toggle", "name": "Enabled", "display": "", "onText": "on ", "offText": "off"},
                 { "type": "Toggle", "name": "Fertilize", "display": "", "onText": "Using fertilizer", "offText": "Not fertilizing"},
                 { "type": "Datapoint", "name": "Status"}
             ]

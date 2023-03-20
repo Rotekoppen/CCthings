@@ -62,7 +62,7 @@ function M:render()
         end
     end
 
-    if M.mobile then
+    if M.mobile and M.selected > 0 then
         for k,datapoint in ipairs(M.spikes[M.selected].datapoints) do
             term.setCursorPos(1, 10+k)
             term.write(k .. ": ")
@@ -76,7 +76,7 @@ function M:inputThread()
         local event, key, is_held = os.pullEvent("key")
         local char = keys.getName(key)
 
-        if M.mobile then
+        if not M.mobile then
             if char == "left" then M.scroll = math.min(M.scroll + 1, 0) end
             if char == "right" then M.scroll = math.max(M.scroll - 1, -20) end
         end
