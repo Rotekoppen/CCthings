@@ -1,0 +1,8 @@
+{
+    "service": "chopdaemon",
+    "permittedRemotes": {
+        "-1": true
+    },
+    "Enabled": false,
+    "Fertilize": false
+}

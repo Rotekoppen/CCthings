@@ -1,4 +1,4 @@
-local config = require("config")
+local config = require("configparser")
 local alive = false
 local status = {}
 peripheral.find("modem", rednet.open)
@@ -16,7 +16,6 @@ function sendStatus(id)
         ["type"] = "updateStatus",
         ["status"] = status
     })
-    print(id,": sent status")
 end
 
 local payloadTable = {
@@ -29,7 +28,7 @@ function listen()
         local id, message = rednet.receive("spikectl-remote")
         if not alive then break end
         if id ~= nil then
-            if not config["permittedRemotes"][id] then
+            if not config["permittedRemotes"][tostring(id)] then
                 print(id, ": rejected id")
             else
                 local payload = textutils.unserialiseJSON(message)
