@@ -1,4 +1,5 @@
 {
+    "service": "spikectl",
     "mobile": false,
     "spikes": [
         {

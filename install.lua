@@ -1,3 +1,4 @@
+term.clear()
 print("\nThis will remove existing files, type [y] to continue")
 term.write(" > ")
 local input = read()
@@ -20,7 +21,8 @@ for i,v in ipairs({
     shell.run("rm " .. v)
 end
 
-print("\nWhat to install: [spikectl, chopdaemon]")
+term.clear()
+print("\nWhat to install: [spikectl, chopdaemon, redstonedaemon]")
 term.write(" > ")
 input = read()
 
@@ -49,4 +51,13 @@ if input == "chopdaemon" then
     shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/defaultConfigs/chop.json config.json")
 end
 
+if input == "redstonedaemon" then
+    print("\nInstalling redstonedaemon\n")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/spikedaemon.lua")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/redstonedaemon.lua")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/configparser.lua")
+    shell.run("wget https://raw.githubusercontent.com/Rotekoppen/CCthings/main/defaultConfigs/redstone.json config.json")
+end
+
+term.clear()
 print("\nDone\n")

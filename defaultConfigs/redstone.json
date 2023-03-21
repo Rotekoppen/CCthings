@@ -2,5 +2,7 @@
     "service": "chopdaemon",
     "permittedRemotes": {
         "-1": true
-    }
+    },
+    "side": "back",
+    "inverted": false
 }
